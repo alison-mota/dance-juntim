@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Languages } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { getAssetPath } from '../utils/paths';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -61,7 +62,7 @@ export const Navbar: React.FC = () => {
           className="flex items-center gap-2 group cursor-pointer"
         >
           <img
-            src="/images/logo-e-nome.gif"
+            src={getAssetPath('images/logo-e-nome.gif')}
             alt="Juntim Festival"
             className="h-12 md:h-14"
           />

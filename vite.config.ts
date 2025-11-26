@@ -4,6 +4,13 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
+    
+    // Base path para GitHub Pages - pode ser configurado via variável de ambiente
+    // Se VITE_BASE_PATH não estiver definido, tenta detectar automaticamente
+    // Para repositório dance-juntim, usar '/dance-juntim/'
+    // Para site principal, usar '/'
+    const basePath = env.VITE_BASE_PATH || (mode === 'production' ? '/dance-juntim/' : '/');
+    
     return {
       server: {
         port: 3000,
@@ -12,7 +19,7 @@ export default defineConfig(({ mode }) => {
       plugins: [react()],
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
+        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
       },
       resolve: {
         alias: {
@@ -29,7 +36,7 @@ export default defineConfig(({ mode }) => {
           }
         }
       },
-      base: '/',
+      base: basePath,
       publicDir: 'public',
     };
 });

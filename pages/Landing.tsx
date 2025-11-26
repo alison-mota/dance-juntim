@@ -5,6 +5,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { EventCard } from '../components/EventCard';
 import { PhotoCarousel, CAROUSEL_HEIGHT, CAROUSEL_VERTICAL_POSITION } from '../components/PhotoCarousel';
 import { getCarouselPhotoPaths } from '../config/carouselPhotos';
+import { getAssetPath } from '../utils/paths';
 
 export const Landing: React.FC = () => {
   const { t } = useLanguage();
@@ -114,7 +115,7 @@ export const Landing: React.FC = () => {
         className="snap-section relative"
         style={{
           backgroundColor: '#FFFFFF',
-          backgroundImage: 'url(/images/fundo-home-fitas.svg)',
+          backgroundImage: `url(${getAssetPath('images/fundo-home-fitas.svg')})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -128,7 +129,7 @@ export const Landing: React.FC = () => {
             <div className="flex flex-col items-center md:items-start text-center md:text-left" style={{ transform: 'translateY(-45%)' }}>
               <div className="w-full max-w-[416px] md:max-w-[582px]">
                 <img
-                  src="/images/logo-e-nome.svg"
+                  src={getAssetPath('images/logo-e-nome.svg')}
                   alt={t('hero.title')}
                   className="w-full"
                   style={{
@@ -145,7 +146,7 @@ export const Landing: React.FC = () => {
                 className="w-full banner-float cursor-pointer"
               >
                 <img
-                  src="/images/virada-de-lote.png"
+                  src={getAssetPath('images/virada-de-lote.png')}
                   alt="Virada de lote - garanta seu ingresso"
                   className="w-full rounded-3xl shadow-[0_8px_24px_rgba(0,0,0,0.3)] border-4 border-white/20 object-cover hover:shadow-[0_12px_32px_rgba(0,0,0,0.4)] transition-shadow duration-300"
                   style={{ maxHeight: '70vh' }}

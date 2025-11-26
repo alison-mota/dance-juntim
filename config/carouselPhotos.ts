@@ -1,3 +1,5 @@
+import { getAssetPath } from '../utils/paths';
+
 // Lista de fotos do carrossel
 // Para adicionar novas fotos, adicione o nome do arquivo neste array
 // As fotos devem estar na pasta public/photos-carousel/
@@ -17,7 +19,8 @@ export const carouselPhotos = [
 ];
 
 // Função auxiliar para gerar os caminhos completos
+// Usa getAssetPath para funcionar corretamente no GitHub Pages
 export const getCarouselPhotoPaths = () => {
-  return carouselPhotos.map(photo => `/photos-carousel/${photo}`);
+  return carouselPhotos.map(photo => getAssetPath(`photos-carousel/${photo}`));
 };
 
