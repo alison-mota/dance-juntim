@@ -1,7 +1,6 @@
 import React from 'react';
 import { PhotoFrame } from './PhotoFrame';
-
-const colors = ['#82251C', '#305568', '#C98633'];
+import { CAROUSEL_FRAME_COLORS } from '../constants/config';
 
 // ===== VARIÁVEIS DE CONFIGURAÇÃO DO CARROSSEL =====
 // Posicionamento do carrossel no eixo vertical (em relação ao bottom)
@@ -27,9 +26,8 @@ export const PhotoCarousel: React.FC<PhotoCarouselProps> = ({ photos }) => {
   
   // Atribui cores de forma aleatória mas consistente para cada foto
   const getColorForPhoto = (index: number) => {
-    // Usa o índice da foto original (não o índice duplicado) para manter consistência
     const originalIndex = index % photos.length;
-    return colors[originalIndex % colors.length];
+    return CAROUSEL_FRAME_COLORS[originalIndex % CAROUSEL_FRAME_COLORS.length];
   };
 
   // Gera rotação aleatória mas consistente para cada foto (entre 3 e 7 graus, horário ou anti-horário)
