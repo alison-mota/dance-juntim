@@ -40,6 +40,9 @@ jobs:
         run: npm ci --audit false
 
       - name: Build
+        env:
+          NODE_ENV: production
+          CI: true
         run: npm run build
 
       - name: Preserve CNAME
